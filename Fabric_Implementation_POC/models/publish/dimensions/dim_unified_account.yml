@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_unified_account
+    description: >
+      Conformed account dimension — shared across facts. POC includes account
+      attributes removed from the fact table.
+    columns:
+      - name: account_csn
+        description: "Primary key — end customer account CSN."
+        tests:
+          - not_null
+          - unique
+      - name: account_name
+        description: "End customer account name."
+      - name: account_type
+        description: "Account type classification."

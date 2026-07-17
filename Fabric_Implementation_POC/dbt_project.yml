@@ -1,0 +1,41 @@
+name: 'fabric_implementation_poc'
+version: '1.0.0'
+config-version: 2
+
+profile: 'fabric_implementation_poc'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - target
+  - dbt_packages
+
+vars:
+  valid_account_types:
+    - 'End Customer'
+    - 'Strategic Account'
+    - 'Government'
+    - 'A.D.N.'
+  excluded_account_categories:
+    - 'Internal'
+    - 'Partner'
+  edh_opportunity_type_filter: 'UnifiedOpportunity'
+
+models:
+  +materialized: ephemeral
+
+  fabric_implementation_poc:
+    ingest:
+      +tags: ['ingest', 'poc']
+    transform:
+      +tags: ['transform', 'poc']
+    publish:
+      +tags: ['publish', 'poc']
+
+tests:
+  +store_failures: true

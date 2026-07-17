@@ -1,0 +1,5 @@
+// fct_opportunity_line_item — DAX measure reference for Fabric POC
+// Row-level logic (opportunity_stage) lives in compiled fact SQL.
+
+Total Line Item ACV (USD) =
+SUM ( fct_opportunity_line_item[line_item_acv_usd] )
