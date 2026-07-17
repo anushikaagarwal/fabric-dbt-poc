@@ -7,7 +7,7 @@ fabric_implementation_poc:
       authentication: CLI
       type: fabric
       driver: 'ODBC Driver 18 for SQL Server'
-      database: WH_FabricDBTTest
+      database: WH_dbtJob_GITPOC
       schema: BI_LAYER_FABRIC_POC
       threads: 4
       host: "{{ env_var('FABRIC_HOST_STRING') }}"
