@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+
+  - name: edh_shared
+    description: >
+      EDH shared tables for OPPORTUNITY_CED POC. After ingesting into Fabric,
+      set database to your Fabric warehouse (e.g. WH_dbtJob_GITPOC).
+    database: WH_dbtJob_GITPOC
+    schema: edh_shared
+    tables:
+      - name: opportunity
+        description: "ENT opportunity header."
+      - name: opportunity_line_item
+        description: "ENT opportunity line items with ACV."
+      - name: account_ced
+        description: "End-customer account reference."

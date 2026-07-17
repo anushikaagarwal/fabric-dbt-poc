@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: fct_opportunity_line_item
+    description: >
+      POC fact — one row per EDH opportunity line item. Denormalized account
+      attributes removed; join dim_unified_account via account_csn. Ephemeral;
+      compile for Fabric pipeline materialization.
+    columns:
+      - name: line_item_number
+        description: "Grain key — opportunity line item identifier."
+        tests:
+          - not_null
+          - unique
+      - name: opportunity_id
+        description: "Source-system opportunity record ID."
+      - name: account_csn
+        description: "FK to dim_unified_account — end customer account."
+        tests:
+          - not_null
+      - name: line_item_acv_usd
+        description: "Line item ACV in USD — input for semantic model measure."
+      - name: opportunity_stage
+        description: "Normalized opportunity stage — row-level calculation."
