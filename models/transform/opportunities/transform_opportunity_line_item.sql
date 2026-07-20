@@ -20,7 +20,7 @@ WHERE acct.account_type IN (
         '{{ account_type }}'{% if not loop.last %},{% endif %}
         {% endfor %}
     )
-    AND acct.is_visible = TRUE
+    AND acct.is_visible = 1
     AND COALESCE(acct.account_category, '') NOT IN (
         {% for category in var('excluded_account_categories') %}
         '{{ category }}'{% if not loop.last %},{% endif %}
