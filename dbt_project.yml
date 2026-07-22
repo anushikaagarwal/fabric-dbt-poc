@@ -35,7 +35,6 @@ models:
     transform:
       +tags: ['transform', 'poc']
     publish:
-      +materialized: table
       +tags: ['publish', 'poc']
 
 tests:
